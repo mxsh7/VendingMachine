@@ -1,92 +1,126 @@
-# NLR-12 Module 1-15 pair project base
+# Week 3 review exercise
 
+Congratulations—you've been hired by a pet setting and grooming company called Pet Elevator. They're building their own software to use in-house.
 
+Your job is to create classes for the Customer Relationship Management (CRM) system. A CRM system helps to manage customer information and other related data.
+
+Since Pet Elevator is a pet sitting and grooming company, you'll need to create a class to represent the human customers and a class to represent their pets.
 
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### Step One: Open the project
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+[Open](https://lms.techelevator.com/content_link/gitlab.com/te-curriculum/intro-to-tools-lms/intellij/04-open-existing-project.md) the Week 3 review project in IntelliJ.
 
-## Add your files
+### Step Two: Review the starting code
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+The software team has started building a system for the Human Resources (HR) department to manage employee, manager, and department information.
 
-```
-cd existing_repo
-git remote add origin https://git.techelevator.com/gwestendorf/nlr-12-module-1-15-pair-project-base.git
-git branch -M main
-git push -uf origin main
-```
+Take a moment to explore the starting code in the `com.techelevator` package and `com.techelevator.hr` package:
 
-## Integrate with your tools
+* `com.techelevator`
+    * `Person.java`: base class representing a person
+    * `Billable.java`: interface defining methods for objects that are "billable"—meaning someone that can be billed for services
+* `com.techelevator.hr`
+    * `Department.java`: class to represent a department in the business
+    * `Employee.java`: class to represent an employee of the company, inherits `Person` class
+    * `Manager.java`: class to represent a manager of the company, inherits `Employee` class
 
-- [ ] [Set up project integrations](https://git.techelevator.com/gwestendorf/nlr-12-module-1-15-pair-project-base/-/settings/integrations)
+### Step Three: Review tests
 
-## Collaborate with your team
+Review and run the existing tests in the `/src/test/java/com/techelevator` package. All of the tests pass when you first open the project. You'll write additional tests to validate the code you'll add in this exercise.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## Notes for all classes
 
-## Test and Deploy
+* If there's nothing in the set column, that means the property is a derived property.
 
-Use the built-in continuous integration in GitLab.
+## CRM system requirements
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+* *All classes you create must be in the `com.techelevator.crm` package.*
+  * By convention, these classes go in the `src\main\java\com\techelevator\crm` folder.
+* The project must not have any build errors.
+* All unit tests pass as expected.
+* Appropriate variable names and data types are used.
+* Code is presented in a clean, organized format.
+* Code is appropriately encapsulated.
+* The code meets the specifications defined below.
 
-***
+There are no provided unit tests. You'll also write tests for the methods you write.
 
-# Editing this README
+### Step Four: Create the `Pet` class
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+#### Properties
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+| Property     | Data Type    | Get | Set | Description                        |
+| ------------ | ------------ | --- | --- | ---------------------------------- |
+| `name`        | `String`       | X   | X   | Name of pet.                       |
+| `species`      | `String`       | X   | X   | Species of pet, like dog or cat.   |
+| `vaccinations` | `List<String>` | X   | X   | Vaccinations the pet has received. |
 
-## Name
-Choose a self-explaining name for your project.
+> Note: Remember to set `vaccinations` to a new initialized `ArrayList`. You can do this in the property declaration or constructor.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+#### Constructors
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Create one constructor for `Pet` that accepts two `String`s to set `name` and `species`.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+#### Methods
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+| Method Name      | Return Type | Parameters |
+| ---------------- | ----------- | ---------- |
+| `listVaccinations` | `String`      | none       |
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+The `listVaccinations` method returns the elements of `vaccinations` as a comma-delimited string. For example, if the `List` contains `["Rabies", "Distemper", "Parvo"]`, the output must be `"Rabies, Distemper, Parvo"`.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Keep in mind the spaces between and not to have a trailing comma.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+#### Unit tests
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Create a `PetTests` class in the `com.techelevator.crm` package. Create a test for `listVaccinations`.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### Step Five: Create the `Customer` class
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Declare a `Customer` class that inherits the `Person` class.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+#### Properties
 
-## License
-For open source projects, say how it is licensed.
+| Property    | Data Type | Get | Set | Description                      |
+| ----------- | --------- | --- | --- | -------------------------------- |
+| `phoneNumber` | `String`    | X   | X   | Customer's phone number.         |
+| `pets`        | `List<Pet>` | X   | X   | Collection of customer's pets.   |
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+> Note: Remember to set `Pets` to a new initialized `ArrayList`. You can do this in the property declaration or constructors.
+
+#### Constructors
+
+`Customer` needs two constructors:
+
+* One that accepts three `String` parameters for first name, last name, and phone number.
+  * This constructor must set the phone number property, and call the base class constructor for first and last name.
+* One that accepts two `String` parameters for first name and last name.
+  * This constructor must call the first constructor with an empty string for phone number.
+
+### Step Six: Implement the `Billable` interface
+
+You received an additional requirement to implement the `Billable` interface on the `Customer` class and the `Employee` class because employees can also be customers.
+
+The `Billable` interface defines a method with the signature `double getBalanceDue(Map<String, Double>)`. You need to implement this method in the `Customer` and `Employee` classes.
+
+#### Methods
+
+| Method Name   | Return Type | Parameters                 |
+| ------------- | ----------- | -------------------------- |
+| `getBalanceDue` | `double`      | `Map<String, Double>`      |
+
+The `getBalanceDue` method returns the total amount the customer owes.
+
+It accepts one parameter, a `Map` of services rendered:
+* The key is a `String` representing the type of service—for example, "Grooming", "Walking", or "Sitting."
+* The value is a `Double` representing the price for each service.
+
+Employees receive a 50% discount on walking services, but the discount isn't applied in the `Map` provided. In the `Employee` implementation of the method, you'll have to calculate the discount.
+
+#### Unit tests
+
+Create a `CustomerTests` class in the `com.techelevator.crm` package. Create a test for `getBalanceDue`.
+
+You'll also need to add a test for `getBalanceDue` in the `EmployeeTests` class. Keep in mind the discount.
