@@ -19,9 +19,9 @@ public class PetTests {
 
         List<String> petVaccinations = new ArrayList<String>(){};
         pet.setVaccination(petVaccinations);
-        petVaccinations.add("Rabies,");
-        petVaccinations.add(" Distemper,");
-        petVaccinations.add(" Parvo");
+        petVaccinations.add("Rabies");
+        petVaccinations.add("Distemper");
+        petVaccinations.add("Parvo");
         String resultList = pet.listVaccinations();
 
         //assert

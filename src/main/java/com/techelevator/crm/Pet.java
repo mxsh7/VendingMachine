@@ -40,9 +40,13 @@ public class Pet {
     public String listVaccinations() {
 
         String vaccine = "";
-        vaccine.substring(0, vaccine.length()-1).split(",");
+
         for (int i = 0; i < vaccination.size(); i++) {
+
             vaccine += vaccination.get(i);
+            if(vaccination.size() - 1 != i) {
+                vaccine += ", ";
+            }
 
         }
         return vaccine;
