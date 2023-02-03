@@ -17,7 +17,7 @@ public class Customer extends Person implements Billable {
         this.phoneNumber = phoneNumber;
 
     }
-    public this.Customer(String firstName, String lastName) {
+    public Customer(String firstName, String lastName) {
         super(firstName, lastName);
         this.phoneNumber = "";
 
@@ -49,16 +49,15 @@ public class Customer extends Person implements Billable {
 
         double serviceCost = 0.00;
 
-        for (String key : servicesRendered.keySet()) {
-            if (key.equals(servicesRendered)) {
+        for (String service : servicesRendered.keySet()) {
 
-                return servicesRendered.get(key);
+                serviceCost += servicesRendered.get(service);
             }
+            return serviceCost;
+
+
         }
 
-        return serviceCost;
     }
 
-
-}
 
